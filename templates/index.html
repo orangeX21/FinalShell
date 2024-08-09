@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FinalShell Activation</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        .container {
+            flex: 1;
+        }
+        footer {
+            background-color: #f8f9fa;
+            padding: 1rem 0;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">FinalShell Activation</h1>
+        <form method="post" class="mb-4">
+            <div class="form-group">
+                <label for="code">输入机器码:</label>
+                <input type="text" class="form-control" id="code" name="code" required>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Generate</button>
+        </form>
+
+        {% if code %}
+        <div class="card">
+            <div class="card-body">
+                <h2 class="card-title">Results for: {{ code }}</h2>
+                <div class="card mt-3">
+                    <div class="card-body">
+                        <h3>版本号 &lt; 3.9.6 (旧版)</h3>
+                        <p><strong>高级版:</strong> {{ high_edition_md5 }}</p>
+                        <p><strong>专业版:</strong> {{ pro_edition_md5 }}</p>
+                    </div>
+                </div>
+                <div class="card mt-3">
+                    <div class="card-body">
+                        <h3>版本号 &gt;= 3.9.6 (新版)</h3>
+                        <p><strong>高级版:</strong> {{ high_edition_keccak }}</p>
+                        <p><strong>专业版:</strong> {{ pro_edition_keccak }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+
+    <footer>
+        <p>&copy; 2024 FinalShell Activation. All rights reserved.</p>
+        <p>TG:<a href="https://t.me/OrangeX21">OrangeX21</a>&nbsp;</p>
+    </footer>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
